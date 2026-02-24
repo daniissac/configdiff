@@ -1,0 +1,39 @@
+hostname: core-router-01
+domain: lab.example.com
+
+interfaces:
+  GigabitEthernet0/0:
+    ip: "10.0.0.1"
+    mask: "255.255.255.0"
+    enabled: true
+    description: "Uplink to ISP-A"
+  GigabitEthernet0/1:
+    ip: "192.168.1.1"
+    mask: "255.255.255.0"
+    enabled: true
+    description: "LAN segment"
+
+bgp:
+  asn: 65000
+  router_id: "10.0.0.1"
+  neighbors:
+    - address: "10.0.0.2"
+      remote_as: 65001
+      description: "Peer ISP-A"
+    - address: "10.0.0.3"
+      remote_as: 65002
+      description: "Peer ISP-B"
+
+dns:
+  servers:
+    - "8.8.8.8"
+    - "8.8.4.4"
+
+logging:
+  level: info
+  destination: syslog
+  facility: local7
+
+ntp:
+  servers:
+    - "pool.ntp.org"

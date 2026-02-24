@@ -1,0 +1,35 @@
+all:
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    ntp_server: time.example.com
+    dns_servers:
+      - 10.0.0.2
+      - 10.0.0.3
+  children:
+    webservers:
+      hosts:
+        web01:
+          ansible_host: 10.0.1.10
+          http_port: 80
+          max_clients: 200
+        web02:
+          ansible_host: 10.0.1.11
+          http_port: 80
+          max_clients: 200
+      vars:
+        http_backend: apache
+        ssl_enabled: true
+    dbservers:
+      hosts:
+        db01:
+          ansible_host: 10.0.2.10
+          db_port: 5432
+          db_name: appdb
+        db02:
+          ansible_host: 10.0.2.11
+          db_port: 5432
+          db_name: appdb
+          db_role: replica
+      vars:
+        backup_enabled: true
+        backup_schedule: "0 2 * * *"

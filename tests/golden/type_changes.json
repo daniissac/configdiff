@@ -1,0 +1,62 @@
+{
+  "summary": {
+    "type_changed": 8
+  },
+  "total_changes": 8,
+  "changes": [
+    {
+      "path": "bool_to_string",
+      "type": "type_changed",
+      "old": true,
+      "new": "true"
+    },
+    {
+      "path": "dict_to_string",
+      "type": "type_changed",
+      "old": {
+        "nested": "value"
+      },
+      "new": "flattened"
+    },
+    {
+      "path": "int_to_float",
+      "type": "type_changed",
+      "old": 10,
+      "new": 10.0
+    },
+    {
+      "path": "int_to_string",
+      "type": "type_changed",
+      "old": 42,
+      "new": "42"
+    },
+    {
+      "path": "list_to_string",
+      "type": "type_changed",
+      "old": [
+        1,
+        2,
+        3
+      ],
+      "new": "serialized"
+    },
+    {
+      "path": "null_to_string",
+      "type": "type_changed",
+      "old": null,
+      "new": "now_set"
+    },
+    {
+      "path": "string_to_bool",
+      "type": "type_changed",
+      "old": "true",
+      "new": true
+    },
+    {
+      "path": "string_to_int",
+      "type": "type_changed",
+      "old": "42",
+      "new": 42
+    }
+  ]
+}

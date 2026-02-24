@@ -1,0 +1,10 @@
+paths:
+  home: "/home/admin/.config"
+  escaped: "line1\nline2\nline3"
+  unicode: "café résumé naïve updated"
+  emoji: "status: ❌ failed"
+  quotes: 'value with "single" quotes'
+keys_with_dots:
+  "a.b.c": "dotted key modified"
+  "x[0]": "bracket key"
+  "y.z": "new dotted key"

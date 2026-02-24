@@ -1,0 +1,18 @@
+{
+  "app": {
+    "name": "web-frontend",
+    "version": "2.3.1",
+    "debug": true,
+    "port": 8080
+  },
+  "database": {
+    "host": "db-staging.internal",
+    "port": 5432,
+    "name": "app_staging",
+    "pool_size": 5
+  },
+  "cache": {
+    "enabled": false
+  },
+  "features": ["search", "notifications"]
+}

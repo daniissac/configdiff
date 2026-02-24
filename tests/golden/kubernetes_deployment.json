@@ -1,0 +1,154 @@
+{
+  "summary": {
+    "modified": 16,
+    "added": 5
+  },
+  "total_changes": 21,
+  "changes": [
+    {
+      "path": "metadata.annotations.deployment.kubernetes.io/revision",
+      "type": "modified",
+      "old": "3",
+      "new": "4"
+    },
+    {
+      "path": "metadata.labels.tier",
+      "type": "added",
+      "new": "frontend"
+    },
+    {
+      "path": "metadata.labels.version",
+      "type": "modified",
+      "old": "v1.2.0",
+      "new": "v2.0.0"
+    },
+    {
+      "path": "spec.replicas",
+      "type": "modified",
+      "old": 3,
+      "new": 5
+    },
+    {
+      "path": "spec.strategy.rollingUpdate.maxSurge",
+      "type": "modified",
+      "old": 1,
+      "new": 2
+    },
+    {
+      "path": "spec.strategy.rollingUpdate.maxUnavailable",
+      "type": "modified",
+      "old": 0,
+      "new": 1
+    },
+    {
+      "path": "spec.template.metadata.labels.version",
+      "type": "modified",
+      "old": "v1.2.0",
+      "new": "v2.0.0"
+    },
+    {
+      "path": "spec.template.spec.containers[0].env[0].value",
+      "type": "modified",
+      "old": "info",
+      "new": "debug"
+    },
+    {
+      "path": "spec.template.spec.containers[0].env[2]",
+      "type": "added",
+      "new": {
+        "name": "FEATURE_FLAGS",
+        "value": "new-ui,dark-mode"
+      }
+    },
+    {
+      "path": "spec.template.spec.containers[0].image",
+      "type": "modified",
+      "old": "registry.example.com/web-frontend:v1.2.0",
+      "new": "registry.example.com/web-frontend:v2.0.0"
+    },
+    {
+      "path": "spec.template.spec.containers[0].livenessProbe.initialDelaySeconds",
+      "type": "modified",
+      "old": 15,
+      "new": 10
+    },
+    {
+      "path": "spec.template.spec.containers[0].livenessProbe.periodSeconds",
+      "type": "modified",
+      "old": 20,
+      "new": 15
+    },
+    {
+      "path": "spec.template.spec.containers[0].ports[1]",
+      "type": "added",
+      "new": {
+        "containerPort": 9090,
+        "protocol": "TCP",
+        "name": "metrics"
+      }
+    },
+    {
+      "path": "spec.template.spec.containers[0].readinessProbe.initialDelaySeconds",
+      "type": "modified",
+      "old": 5,
+      "new": 3
+    },
+    {
+      "path": "spec.template.spec.containers[0].readinessProbe.periodSeconds",
+      "type": "modified",
+      "old": 10,
+      "new": 5
+    },
+    {
+      "path": "spec.template.spec.containers[0].resources.limits.cpu",
+      "type": "modified",
+      "old": "500m",
+      "new": "1"
+    },
+    {
+      "path": "spec.template.spec.containers[0].resources.limits.memory",
+      "type": "modified",
+      "old": "512Mi",
+      "new": "1Gi"
+    },
+    {
+      "path": "spec.template.spec.containers[0].resources.requests.cpu",
+      "type": "modified",
+      "old": "100m",
+      "new": "200m"
+    },
+    {
+      "path": "spec.template.spec.containers[0].resources.requests.memory",
+      "type": "modified",
+      "old": "128Mi",
+      "new": "256Mi"
+    },
+    {
+      "path": "spec.template.spec.containers[1]",
+      "type": "added",
+      "new": {
+        "name": "sidecar",
+        "image": "registry.example.com/log-collector:v1.0.0",
+        "resources": {
+          "requests": {
+            "cpu": "50m",
+            "memory": "64Mi"
+          },
+          "limits": {
+            "cpu": "100m",
+            "memory": "128Mi"
+          }
+        }
+      }
+    },
+    {
+      "path": "spec.template.spec.tolerations[1]",
+      "type": "added",
+      "new": {
+        "key": "dedicated",
+        "operator": "Exists",
+        "effect": "PreferNoSchedule"
+      }
+    }
+  ]
+}

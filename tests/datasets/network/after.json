@@ -1,0 +1,76 @@
+{
+  "hostname": "core-rtr-01",
+  "domain": "network.example.com",
+  "interfaces": {
+    "GigabitEthernet0/0": {
+      "description": "Uplink to ISP-Primary",
+      "ip_address": "203.0.113.1",
+      "subnet_mask": "255.255.255.252",
+      "enabled": true,
+      "mtu": 1500,
+      "speed": "1000",
+      "duplex": "full"
+    },
+    "GigabitEthernet0/1": {
+      "description": "LAN Interface",
+      "ip_address": "10.0.0.1",
+      "subnet_mask": "255.255.255.0",
+      "enabled": true,
+      "mtu": 9000,
+      "vlan": 100
+    },
+    "GigabitEthernet0/2": {
+      "description": "Uplink to ISP-Secondary",
+      "ip_address": "198.51.100.1",
+      "subnet_mask": "255.255.255.252",
+      "enabled": true,
+      "mtu": 1500
+    },
+    "Loopback0": {
+      "ip_address": "192.168.255.1",
+      "subnet_mask": "255.255.255.255"
+    }
+  },
+  "routing": {
+    "ospf": {
+      "process_id": 1,
+      "router_id": "192.168.255.1",
+      "areas": [
+        {
+          "id": "0.0.0.0",
+          "networks": ["10.0.0.0/24", "192.168.255.1/32", "198.51.100.0/30"]
+        }
+      ]
+    },
+    "bgp": {
+      "asn": 65001,
+      "neighbors": [
+        {"address": "203.0.113.2", "remote_as": 64512},
+        {"address": "198.51.100.2", "remote_as": 64513}
+      ]
+    },
+    "static_routes": [
+      {"network": "0.0.0.0/0", "next_hop": "203.0.113.2", "metric": 10},
+      {"network": "0.0.0.0/0", "next_hop": "198.51.100.2", "metric": 20}
+    ]
+  },
+  "dns": {
+    "servers": ["10.0.0.2", "10.0.0.3", "10.0.0.4"],
+    "domain_lookup": true
+  },
+  "ntp": {
+    "servers": ["10.0.0.10", "10.0.0.11"],
+    "timezone": "UTC"
+  },
+  "acl": [
+    {
+      "name": "MGMT-ACCESS",
+      "entries": [
+        {"sequence": 10, "action": "permit", "source": "10.0.0.0/24"},
+        {"sequence": 15, "action": "permit", "source": "192.168.0.0/16"},
+        {"sequence": 20, "action": "permit", "source": "172.16.0.0/12"},
+        {"sequence": 100, "action": "deny", "source": "any"}
+      ]
+    }
+  ]
+}

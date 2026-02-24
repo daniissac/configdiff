@@ -1,0 +1,8 @@
+{
+  "value": null,
+  "nested": {
+    "a": null,
+    "b": "present"
+  },
+  "list_with_nulls": [null, 1, null, "text"]
+}

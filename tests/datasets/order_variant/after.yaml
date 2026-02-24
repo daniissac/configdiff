@@ -1,0 +1,11 @@
+environments:
+  - name: production
+    replicas: 5
+  - name: dev
+    replicas: 1
+  - name: staging
+    replicas: 2
+features:
+  - notifications
+  - dark-mode
+  - api-v2

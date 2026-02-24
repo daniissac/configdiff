@@ -1,0 +1,10 @@
+{
+  "string_to_int": 42,
+  "int_to_string": "42",
+  "bool_to_string": "true",
+  "string_to_bool": true,
+  "int_to_float": 10.0,
+  "null_to_string": "now_set",
+  "list_to_string": "serialized",
+  "dict_to_string": "flattened"
+}

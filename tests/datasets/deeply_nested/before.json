@@ -1,0 +1,31 @@
+{
+  "level1": {
+    "level2": {
+      "level3": {
+        "level4": {
+          "level5": {
+            "level6": {
+              "value": "deep_original",
+              "count": 42,
+              "tags": ["alpha", "beta"]
+            }
+          },
+          "sibling": "present"
+        },
+        "array_of_objects": [
+          {"id": 1, "name": "first", "nested": {"x": 10}},
+          {"id": 2, "name": "second", "nested": {"x": 20}},
+          {"id": 3, "name": "third", "nested": {"x": 30}}
+        ]
+      },
+      "metadata": {
+        "created": "2024-01-01",
+        "labels": {
+          "env": "production",
+          "team": "platform",
+          "cost-center": "eng-001"
+        }
+      }
+    }
+  }
+}

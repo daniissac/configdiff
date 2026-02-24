@@ -1,0 +1,8 @@
+{
+  "value": "now_set",
+  "nested": {
+    "a": 42,
+    "b": null
+  },
+  "list_with_nulls": [null, 1, "replaced", "text"]
+}
