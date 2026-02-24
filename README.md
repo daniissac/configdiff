@@ -4,8 +4,8 @@
     <strong>Structure-aware configuration comparison for humans and machines.</strong>
   </p>
   <p align="center">
-    <a href="https://pypi.org/project/configdiff/"><img src="https://img.shields.io/pypi/v/configdiff?color=blue" alt="PyPI version"></a>
-    <a href="https://pypi.org/project/configdiff/"><img src="https://img.shields.io/pypi/pyversions/configdiff" alt="Python versions"></a>
+    <a href="https://pypi.org/project/configdiff/"><img src="https://img.shields.io/pypi/v/configdiff?color=blue&v=0.1.0" alt="PyPI version"></a>
+    <a href="https://pypi.org/project/configdiff/"><img src="https://img.shields.io/pypi/pyversions/configdiff?v=0.1.0" alt="Python versions"></a>
     <a href="https://github.com/daniissac/configdiff/blob/main/LICENSE"><img src="https://img.shields.io/github/license/daniissac/configdiff" alt="License"></a>
     <a href="https://github.com/daniissac/configdiff/actions"><img src="https://img.shields.io/github/actions/workflow/status/daniissac/configdiff/ci.yml?label=tests" alt="CI"></a>
     <a href="https://codecov.io/gh/daniissac/configdiff"><img src="https://img.shields.io/codecov/c/github/daniissac/configdiff" alt="Coverage"></a>
