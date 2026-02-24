@@ -66,8 +66,13 @@ jobs:
           configdiff --help
           python -m configdiff --version
 
-      - name: Smoke test
-        run: configdiff examples/before.json examples/after.json --format json
+      - name: Smoke test (exit 1 = changes found)
+        run: |
+          set +e
+          configdiff examples/before.json examples/after.json --format json
+          EXIT_CODE=$?
+          set -e
+          test "$EXIT_CODE" -eq 1
 
   publish-testpypi:
     name: Publish to TestPyPI
