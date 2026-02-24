@@ -47,18 +47,24 @@ jobs:
           configdiff --version
           configdiff --help
 
-      - name: Smoke test — JSON diff
+      - name: Smoke test — JSON diff (exit 1 = changes found)
         run: |
+          set +e
           configdiff examples/before.json examples/after.json --format json
+          EXIT_CODE=$?
+          set -e
+          test "$EXIT_CODE" -eq 1
 
-      - name: Smoke test — YAML diff
+      - name: Smoke test — YAML diff (exit 1 = changes found)
         run: |
+          set +e
           configdiff examples/before.yaml examples/after.yaml --format text
+          EXIT_CODE=$?
+          set -e
+          test "$EXIT_CODE" -eq 1
 
       - name: Smoke test — exit code 0 on identical files
-        run: |
-          configdiff examples/before.json examples/before.json
-          test $? -eq 0
+        run: configdiff examples/before.json examples/before.json
 
       - name: Upload test results
         if: always()
