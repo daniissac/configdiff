@@ -1,0 +1,20 @@
+{
+  "app": {
+    "name": "web-frontend",
+    "version": "2.4.0",
+    "debug": false,
+    "port": 8080,
+    "workers": 4
+  },
+  "database": {
+    "host": "db-prod.internal",
+    "port": 5432,
+    "name": "app_production",
+    "pool_size": 20
+  },
+  "cache": {
+    "enabled": true,
+    "ttl": 300
+  },
+  "features": ["search", "notifications", "dashboard"]
+}

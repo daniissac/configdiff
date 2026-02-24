@@ -1,0 +1,45 @@
+hostname: core-router-01
+domain: prod.example.com
+
+interfaces:
+  GigabitEthernet0/0:
+    ip: "10.0.0.1"
+    mask: "255.255.255.0"
+    enabled: true
+    description: "Uplink to ISP-A"
+  GigabitEthernet0/1:
+    ip: "192.168.1.1"
+    mask: "255.255.255.0"
+    enabled: false
+    description: "LAN segment - maintenance"
+  GigabitEthernet0/2:
+    ip: "172.16.0.1"
+    mask: "255.255.255.0"
+    enabled: true
+    description: "New DMZ segment"
+
+bgp:
+  asn: 65000
+  router_id: "10.0.0.1"
+  neighbors:
+    - address: "10.0.0.2"
+      remote_as: 65010
+      description: "Peer ISP-A (migrated)"
+    - address: "10.0.0.3"
+      remote_as: 65002
+      description: "Peer ISP-B"
+
+dns:
+  servers:
+    - "1.1.1.1"
+    - "8.8.8.8"
+
+logging:
+  level: warning
+  destination: syslog
+  facility: local7
+
+ntp:
+  servers:
+    - "time.google.com"
+    - "pool.ntp.org"

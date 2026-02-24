@@ -1,0 +1,50 @@
+all:
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    ntp_server: ntp.pool.example.com
+    dns_servers:
+      - 10.0.0.2
+      - 10.0.0.3
+      - 10.0.0.4
+    monitoring_enabled: true
+  children:
+    webservers:
+      hosts:
+        web01:
+          ansible_host: 10.0.1.10
+          http_port: 443
+          max_clients: 500
+        web02:
+          ansible_host: 10.0.1.11
+          http_port: 443
+          max_clients: 500
+        web03:
+          ansible_host: 10.0.1.12
+          http_port: 443
+          max_clients: 500
+      vars:
+        http_backend: nginx
+        ssl_enabled: true
+        ssl_cert_path: /etc/ssl/certs/app.pem
+    dbservers:
+      hosts:
+        db01:
+          ansible_host: 10.0.2.10
+          db_port: 5432
+          db_name: appdb
+        db02:
+          ansible_host: 10.0.2.11
+          db_port: 5432
+          db_name: appdb
+          db_role: replica
+      vars:
+        backup_enabled: true
+        backup_schedule: "0 1 * * *"
+        backup_retention_days: 30
+    monitoring:
+      hosts:
+        mon01:
+          ansible_host: 10.0.3.10
+      vars:
+        prometheus_port: 9090
+        grafana_port: 3000

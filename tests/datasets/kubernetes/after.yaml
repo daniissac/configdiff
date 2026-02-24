@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-frontend
+  namespace: production
+  labels:
+    app: web-frontend
+    version: v2.0.0
+    managed-by: helm
+    tier: frontend
+  annotations:
+    deployment.kubernetes.io/revision: "4"
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: web-frontend
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: web-frontend
+        version: v2.0.0
+    spec:
+      serviceAccountName: web-frontend
+      containers:
+        - name: web
+          image: registry.example.com/web-frontend:v2.0.0
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 9090
+              protocol: TCP
+              name: metrics
+          env:
+            - name: LOG_LEVEL
+              value: debug
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: host
+            - name: FEATURE_FLAGS
+              value: "new-ui,dark-mode"
+          resources:
+            requests:
+              cpu: 200m
+              memory: 256Mi
+            limits:
+              cpu: "1"
+              memory: 1Gi
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+        - name: sidecar
+          image: registry.example.com/log-collector:v1.0.0
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 100m
+              memory: 128Mi
+      tolerations:
+        - key: node-role
+          operator: Equal
+          value: frontend
+          effect: NoSchedule
+        - key: dedicated
+          operator: Exists
+          effect: PreferNoSchedule

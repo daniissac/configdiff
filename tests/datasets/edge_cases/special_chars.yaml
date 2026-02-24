@@ -1,0 +1,9 @@
+paths:
+  home: "/home/user/.config"
+  escaped: "line1\nline2\ttab"
+  unicode: "café résumé naïve"
+  emoji: "status: ✅ deployed"
+  quotes: 'value with "double" quotes'
+keys_with_dots:
+  "a.b.c": "dotted key"
+  "x[0]": "bracket key"

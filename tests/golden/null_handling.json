@@ -1,0 +1,32 @@
+{
+  "summary": {
+    "type_changed": 4
+  },
+  "total_changes": 4,
+  "changes": [
+    {
+      "path": "list_with_nulls[2]",
+      "type": "type_changed",
+      "old": null,
+      "new": "replaced"
+    },
+    {
+      "path": "nested.a",
+      "type": "type_changed",
+      "old": null,
+      "new": 42
+    },
+    {
+      "path": "nested.b",
+      "type": "type_changed",
+      "old": "present",
+      "new": null
+    },
+    {
+      "path": "value",
+      "type": "type_changed",
+      "old": null,
+      "new": "now_set"
+    }
+  ]
+}

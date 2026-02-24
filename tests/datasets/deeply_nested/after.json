@@ -1,0 +1,33 @@
+{
+  "level1": {
+    "level2": {
+      "level3": {
+        "level4": {
+          "level5": {
+            "level6": {
+              "value": "deep_modified",
+              "count": 99,
+              "tags": ["alpha", "gamma"]
+            }
+          }
+        },
+        "array_of_objects": [
+          {"id": 1, "name": "first", "nested": {"x": 10}},
+          {"id": 2, "name": "second_renamed", "nested": {"x": 25}},
+          {"id": 3, "name": "third", "nested": {"x": 30}},
+          {"id": 4, "name": "fourth", "nested": {"x": 40}}
+        ]
+      },
+      "metadata": {
+        "created": "2024-01-01",
+        "updated": "2025-06-15",
+        "labels": {
+          "env": "staging",
+          "team": "platform",
+          "cost-center": "eng-002",
+          "managed-by": "terraform"
+        }
+      }
+    }
+  }
+}

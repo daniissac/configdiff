@@ -1,0 +1,10 @@
+{
+  "users": ["alice", "bob", "charlie"],
+  "permissions": ["read", "write", "execute"],
+  "servers": [
+    {"name": "web1", "port": 80},
+    {"name": "web2", "port": 443},
+    {"name": "web3", "port": 8080}
+  ],
+  "tags": ["production", "us-east-1", "critical"]
+}
