@@ -8,11 +8,14 @@
     <a href="https://pypi.org/project/configdiff/"><img src="https://img.shields.io/pypi/pyversions/configdiff?v=0.1.0" alt="Python versions"></a>
     <a href="https://github.com/daniissac/configdiff/blob/main/LICENSE"><img src="https://img.shields.io/github/license/daniissac/configdiff" alt="License"></a>
     <a href="https://github.com/daniissac/configdiff/actions"><img src="https://img.shields.io/github/actions/workflow/status/daniissac/configdiff/ci.yml?label=tests" alt="CI"></a>
-    <a href="https://codecov.io/gh/daniissac/configdiff"><img src="https://img.shields.io/codecov/c/github/daniissac/configdiff" alt="Coverage"></a>
   </p>
 </p>
 
 ConfigDiff compares structured config files **semantically** -- parsing JSON, YAML, TOML, and INI into normalised trees and performing recursive deep comparison. It detects added, removed, modified, and type-changed values at any depth, then produces clean human-readable output for terminal review or machine-readable JSON/YAML for CI/CD pipelines.
+
+<p align="center">
+  <img src="docs/configdiff-demo.svg" alt="ConfigDiff showing semantic configuration changes in a terminal" width="900">
+</p>
 
 ```
 $ configdiff before.yaml after.yaml

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+  <title id="title">ConfigDiff terminal demonstration</title>
+  <desc id="desc">A terminal showing added and modified configuration values from a semantic comparison.</desc>
+  <rect width="960" height="500" rx="22" fill="#0d1117"/>
+  <circle cx="34" cy="32" r="7" fill="#ff5f56"/>
+  <circle cx="58" cy="32" r="7" fill="#ffbd2e"/>
+  <circle cx="82" cy="32" r="7" fill="#27c93f"/>
+  <text x="480" y="38" text-anchor="middle" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14">configdiff</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18">
+    <text x="34" y="88" fill="#c9d1d9">$ configdiff before.yaml after.yaml</text>
+    <text x="34" y="136" fill="#f0f6fc" font-weight="700">Found 5 changes: 2 added, 3 modified</text>
+    <text x="52" y="190" fill="#d2a8ff">~ bgp.neighbors[0].remote_as</text>
+    <text x="82" y="220" fill="#8b949e">65001</text>
+    <text x="152" y="220" fill="#8b949e">→</text>
+    <text x="184" y="220" fill="#ffa657">65010</text>
+    <text x="52" y="270" fill="#d2a8ff">~ interfaces.GigabitEthernet0/1.enabled</text>
+    <text x="82" y="300" fill="#8b949e">true</text>
+    <text x="142" y="300" fill="#8b949e">→</text>
+    <text x="174" y="300" fill="#ff7b72">false</text>
+    <text x="52" y="350" fill="#56d364">+ interfaces.GigabitEthernet0/2</text>
+    <text x="82" y="380" fill="#a5d6ff">ip: 172.16.0.1 · enabled: true</text>
+    <text x="52" y="430" fill="#56d364">+ ntp.servers[1]: pool.ntp.org</text>
+  </g>
+  <text x="926" y="474" text-anchor="end" fill="#58a6ff" font-family="Inter, sans-serif" font-size="15" font-weight="700">Structure-aware · CI-friendly</text>
+</svg>
