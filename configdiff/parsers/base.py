@@ -11,11 +11,11 @@ class BaseParser(abc.ABC):
     """Base class that every config format parser must implement.
 
     Subclasses declare ``format_name`` (e.g. ``"json"``) and
-    ``extensions`` (e.g. ``[".json"]``), then implement :meth:`parse`.
+    ``extensions`` (e.g. ``(".json",)``), then implement :meth:`parse`.
     """
 
     format_name: str
-    extensions: list[str]
+    extensions: tuple[str, ...]
 
     @abc.abstractmethod
     def parse(self, path: Path) -> dict[str, Any]:

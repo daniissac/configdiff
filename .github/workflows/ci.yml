@@ -42,6 +42,10 @@ jobs:
             --cov-report=term-missing \
             --cov-report=xml:results/coverage.xml
 
+      - name: Lint
+        if: matrix.python-version == '3.13'
+        run: ruff check .
+
       - name: Verify CLI entry point
         run: |
           configdiff --version

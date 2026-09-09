@@ -25,8 +25,8 @@ def get_formatter(name: str) -> BaseFormatter:
 
 __all__ = [
     "BaseFormatter",
-    "TextFormatter",
     "JsonFormatter",
+    "TextFormatter",
     "YamlFormatter",
     "get_formatter",
 ]

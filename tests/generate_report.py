@@ -7,7 +7,6 @@ and edge-case findings, then writes a Markdown report.
 
 from __future__ import annotations
 
-import json
 import subprocess
 import sys
 import time
@@ -216,7 +215,11 @@ def generate_report() -> None:
     findings = [
         ("Empty file handling", "PASS", "Empty JSON/YAML parsed as empty dict"),
         ("Null value transitions", "PASS", "null->value and value->null correctly detected"),
-        ("Type coercion awareness", "PASS", "int/float, str/bool, null/str all detected as TYPE_CHANGED"),
+        (
+            "Type coercion awareness",
+            "PASS",
+            "int/float, str/bool, null/str all detected as TYPE_CHANGED",
+        ),
         ("Malformed input rejection", "PASS", "Invalid JSON/YAML returns EXIT_ERROR (code 2)"),
         ("Unicode support", "PASS", "Emoji, accented chars, special escapes handled"),
         ("Keys with dots", "PASS", 'Keys like \"a.b.c\" work (path uses same dot notation)'),

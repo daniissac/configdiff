@@ -15,7 +15,6 @@ import pytest
 
 from configdiff.diff_engine import compare
 from configdiff.output.json_output import JsonFormatter
-from configdiff.parsers.json_parser import JsonParser
 from configdiff.parsers.yaml_parser import YamlParser
 
 GOLDEN_DIR = Path(__file__).parent / "golden"

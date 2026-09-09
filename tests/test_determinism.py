@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import ClassVar
 
 import pytest
 
@@ -99,7 +100,7 @@ class TestCLIDeterminism:
         else:
             assert data == TestCLIDeterminism._k8s_baseline
 
-    _k8s_baseline: dict = {}
+    _k8s_baseline: ClassVar[dict] = {}
 
 
 class TestOutputDeterminism:
