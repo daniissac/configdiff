@@ -9,7 +9,7 @@ from pathlib import Path
 import configdiff
 from configdiff.diff_engine import compare
 from configdiff.output import get_formatter
-from configdiff.parsers import ParserRegistry  # noqa: F401 (triggers auto-registration)
+from configdiff.parsers import ParserRegistry
 from configdiff.utils.format_detection import detect_format
 from configdiff.utils.logging import setup_logging
 

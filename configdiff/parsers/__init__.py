@@ -12,9 +12,9 @@ ParserRegistry.register(TomlParser())
 ParserRegistry.register(IniParser())
 
 __all__ = [
-    "JsonParser",
-    "YamlParser",
-    "TomlParser",
     "IniParser",
+    "JsonParser",
     "ParserRegistry",
+    "TomlParser",
+    "YamlParser",
 ]

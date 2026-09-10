@@ -8,7 +8,6 @@ regressions and establish baseline expectations.
 from __future__ import annotations
 
 import json
-import sys
 import time
 from pathlib import Path
 

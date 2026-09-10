@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, ClassVar
 
 if TYPE_CHECKING:
     from configdiff.parsers.base import BaseParser
@@ -19,7 +19,7 @@ class ParserRegistry:
     the ``configdiff.parsers`` package is first imported.
     """
 
-    _parsers: dict[str, BaseParser] = {}
+    _parsers: ClassVar[dict[str, BaseParser]] = {}
 
     @classmethod
     def register(cls, parser: BaseParser) -> None:

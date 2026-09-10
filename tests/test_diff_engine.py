@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from configdiff.diff_engine import ChangeType, DiffResult, compare
+from configdiff.diff_engine import ChangeType, compare
 
 
 class TestScalarChanges:
@@ -91,6 +91,14 @@ class TestListChanges:
         result = compare(
             {"a": [3, 1, 2]},
             {"a": [2, 3, 1]},
+            ignore_order=True,
+        )
+        assert not result.has_changes
+
+    def test_ignore_order_canonicalizes_nested_mappings(self) -> None:
+        result = compare(
+            {"a": [{"name": "dns", "servers": ["1.1.1.1", "8.8.8.8"]}]},
+            {"a": [{"servers": ["8.8.8.8", "1.1.1.1"], "name": "dns"}]},
             ignore_order=True,
         )
         assert not result.has_changes

@@ -236,7 +236,7 @@ class TestListEdgeCases:
         )
         assert result.has_changes
         assert len(result.entries) == 1
-        assert "items[1].val" == result.entries[0].path
+        assert result.entries[0].path == "items[1].val"
 
     def test_deeply_nested_list(self) -> None:
         before = {"a": {"b": {"c": [1, [2, [3, [4]]]]}}}

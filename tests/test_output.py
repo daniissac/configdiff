@@ -7,7 +7,7 @@ import os
 
 import yaml
 
-from configdiff.diff_engine import ChangeType, DiffEntry, DiffResult, compare
+from configdiff.diff_engine import DiffResult, compare
 from configdiff.output import get_formatter
 from configdiff.output.json_output import JsonFormatter
 from configdiff.output.text import TextFormatter

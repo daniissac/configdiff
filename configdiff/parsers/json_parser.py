@@ -11,7 +11,7 @@ from configdiff.parsers.base import BaseParser
 
 class JsonParser(BaseParser):
     format_name = "json"
-    extensions = [".json"]
+    extensions = (".json",)
 
     def parse(self, path: Path) -> dict[str, Any]:
         try:

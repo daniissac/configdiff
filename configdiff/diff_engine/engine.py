@@ -10,12 +10,18 @@ from configdiff.diff_engine.models import ChangeType, DiffEntry, DiffResult
 logger = logging.getLogger(__name__)
 
 
-def _sort_key(item: Any) -> Any:
-    """Produce a sortable key for heterogeneous lists."""
-    try:
-        return (0, str(item))
-    except Exception:
-        return (1, id(item))
+def _sort_key(item: Any) -> str:
+    """Return a deterministic key that ignores mapping and nested-list order."""
+    if isinstance(item, dict):
+        normalized = tuple(
+            (repr(key), _sort_key(value))
+            for key, value in sorted(item.items(), key=lambda pair: repr(pair[0]))
+        )
+    elif isinstance(item, list):
+        normalized = tuple(sorted(map(_sort_key, item)))
+    else:
+        normalized = (type(item).__qualname__, repr(item))
+    return repr(normalized)
 
 
 def _deep_diff(

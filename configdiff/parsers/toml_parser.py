@@ -11,7 +11,7 @@ from configdiff.parsers.base import BaseParser
 
 class TomlParser(BaseParser):
     format_name = "toml"
-    extensions = [".toml"]
+    extensions = (".toml",)
 
     def parse(self, path: Path) -> dict[str, Any]:
         try:

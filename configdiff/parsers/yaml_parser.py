@@ -12,7 +12,7 @@ from configdiff.parsers.base import BaseParser
 
 class YamlParser(BaseParser):
     format_name = "yaml"
-    extensions = [".yaml", ".yml"]
+    extensions = (".yaml", ".yml")
 
     def parse(self, path: Path) -> dict[str, Any]:
         try:

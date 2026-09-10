@@ -11,7 +11,7 @@ from configdiff.parsers.base import BaseParser
 
 class IniParser(BaseParser):
     format_name = "ini"
-    extensions = [".ini", ".cfg", ".conf"]
+    extensions = (".ini", ".cfg", ".conf")
 
     def parse(self, path: Path) -> dict[str, Any]:
         try:

@@ -12,9 +12,8 @@ from pathlib import Path
 
 import pytest
 
-from configdiff.cli.app import EXIT_CHANGES, EXIT_ERROR, EXIT_NO_CHANGES, run
+from configdiff.cli.app import EXIT_CHANGES, EXIT_NO_CHANGES, run
 from configdiff.diff_engine import ChangeType, compare
-from configdiff.output.json_output import JsonFormatter
 from configdiff.parsers.json_parser import JsonParser
 from configdiff.parsers.yaml_parser import YamlParser
 
@@ -126,7 +125,9 @@ class TestKubernetesDiff:
 
     def test_image_tag_changed(self, k8s_result) -> None:
         image_entries = [
-            e for e in k8s_result.entries if "image" in e.path and e.change_type is ChangeType.MODIFIED
+            entry
+            for entry in k8s_result.entries
+            if "image" in entry.path and entry.change_type is ChangeType.MODIFIED
         ]
         assert len(image_entries) >= 1
 
