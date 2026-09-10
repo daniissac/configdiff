@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.1] - 2026-09-10
+
+### Fixed
+
+- Compare nested dictionaries correctly inside order-insensitive lists instead of treating unequal mappings as equal.
+- Keep unordered comparison deterministic for nested lists and mixed structured values.
+
 ## [0.1.0] - 2026-02-24
 
 ### Added
@@ -22,4 +29,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 - Comprehensive test suite: unit, integration, golden, property-based, performance
 - GitHub Actions CI with Python 3.11, 3.12, 3.13 matrix
 
+[0.1.1]: https://github.com/daniissac/configdiff/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/daniissac/configdiff/releases/tag/v0.1.0
